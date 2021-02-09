@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScarySpiceDufflinMunder.Employees.Employee;
+using System;
 
 namespace ScarySpiceDufflinMunder
 {
@@ -6,6 +7,9 @@ namespace ScarySpiceDufflinMunder
     {
         static void Main(string[] args)
         {
+            var accountant1 = new Accounting("Kevin");
+            var accountant2 = new Accounting("Oscar");
+
             Console.WriteLine(@"
                Welcome to Dufflin/Munder Cardboard Co. 
                Sales Portal!
