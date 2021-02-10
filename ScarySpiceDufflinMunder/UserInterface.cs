@@ -26,7 +26,7 @@ Sales Portal!
             switch (caseSwitch)
             {
                 case 1:
-                    Console.WriteLine("Case 1");
+                    Sales.EnterSale();
                     break;
                 case 2:
                     Console.WriteLine("Case 2");
