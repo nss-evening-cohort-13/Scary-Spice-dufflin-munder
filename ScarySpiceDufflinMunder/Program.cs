@@ -10,16 +10,31 @@ namespace ScarySpiceDufflinMunder
             var accountant1 = new Accounting("Kevin");
             var accountant2 = new Accounting("Oscar");
 
-            Console.WriteLine(@"
-               Welcome to Dufflin/Munder Cardboard Co. 
-               Sales Portal!
-               
-               1.Enter Sales
-               2.Generate Report For Accountant
-               3.Add New Sales Employee
-               4.Find a Sale
-               5.Exit
-                     ");
+            
+            while(true)
+            {
+                UserInterface.MainGreeting();
+
+                var validSelection = int.TryParse(Console.ReadLine(), out int result);
+                if (validSelection && result < 5 && result > 0)
+                {
+                    UserInterface.UserSelection(result);
+                }
+                else if(result == 5)
+                {
+                    Console.WriteLine("Thanks for choosing sales portal");
+                    break;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please make a valid selection");
+                    continue;
+                }
+            } 
+           
+
+            
         }
     }
 }
