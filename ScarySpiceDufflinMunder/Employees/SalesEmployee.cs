@@ -7,10 +7,15 @@ namespace ScarySpiceDufflinMunder
 {
     class SalesEmployee : EmployeeBase
     {
-        public List<Client> Clients { get; set; } = new List<Client>();
-        public List<Sales> Sales { get; set; } = new List<Sales>();
+        private List<Client> Clients { get; set; } = new List<Client>();
+        private List<Sales> Sales { get; set; } = new List<Sales>();
 
-        public void AddClient (Client client)
+        // Constructor
+        public SalesEmployee(string name)
+        {
+            Name = name;
+        }
+        public void AddClient(Client client)
         {
             Clients.Add(client);
         }
@@ -18,6 +23,13 @@ namespace ScarySpiceDufflinMunder
         {
             Sales.Add(sale);
         }
-
+        public List<Client> getEmployeeClients()
+        {
+            return Clients;
+        }
+        public List<Sales> getEmployeeSales()
+        {
+            return Sales;
+        }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using ScarySpiceDufflinMunder.Employees.Employee;
 using System;
+using System.Collections.Generic;
 
 namespace ScarySpiceDufflinMunder
 {
     class Program
     {
+        public static List<SalesEmployee> SalesEmployees { get; set; } = new List<SalesEmployee>();
         static void Main(string[] args)
         {
             var accountant1 = new Accounting("Kevin");
@@ -32,9 +34,8 @@ namespace ScarySpiceDufflinMunder
                     continue;
                 }
             } 
-           
-
-            
         }
+
+        public static void AddSalesEmployee(SalesEmployee salesEmployee) => SalesEmployees.Add(salesEmployee);
     }
 }
