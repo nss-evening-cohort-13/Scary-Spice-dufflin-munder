@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScarySpiceDufflinMunder.Employees.Employee;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -32,17 +33,19 @@ Sales Portal!
                     Report.Create();
                     break;
                 case 3:
-                    Console.WriteLine("Case 3");
+                    Console.WriteLine("Please enter a name: ");
+                    string newSalesEmployeeName = Console.ReadLine();
+                    var newEmployee = new SalesEmployee($"{newSalesEmployeeName}");
+                    Program.AddSalesEmployee(newEmployee);
+                    //print all of employees just to check
+                    //foreach(var employee in Program.SalesEmployees)
+                    //{
+                    //    Console.WriteLine($"{employee.Name}");
+                    //}
                     break;
                 case 4:
                     Console.WriteLine("Case 4");
                     break;
-                /*case 5:
-                    Console.WriteLine("Case 5");
-                    break;
-                default:
-                    Console.WriteLine("Default case");
-                    break;*/
             }
         }
     }
