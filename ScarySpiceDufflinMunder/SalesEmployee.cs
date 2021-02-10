@@ -7,13 +7,13 @@ namespace ScarySpiceDufflinMunder
     class SalesEmployee
     {
         public List<Client> Clients { get; set; } = new List<Client>();
-        public List<Sale> Sales { get; set; } = new List<Sale>();
+        public List<Sales> Sales { get; set; } = new List<Sales>();
 
         public void AddClient (Client client)
         {
             Clients.Add(client);
         }
-        public void AddSale(Sale sale)
+        public void AddSale(Sales sale)
         {
             Sales.Add(sale);
         }
