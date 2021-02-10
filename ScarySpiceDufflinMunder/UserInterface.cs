@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScarySpiceDufflinMunder.Employees.Employee;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -29,7 +30,7 @@ Sales Portal!
                     Console.WriteLine("Case 1");
                     break;
                 case 2:
-                    Console.WriteLine("Case 2");
+                    Report.Create();
                     break;
                 case 3:
                     Console.WriteLine("Please enter a name: ");

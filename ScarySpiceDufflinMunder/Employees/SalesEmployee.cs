@@ -1,21 +1,20 @@
-﻿using ScarySpiceDufflinMunder.Employees;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ScarySpiceDufflinMunder.Employees;
 
-namespace ScarySpiceDufflinMunder
+namespace ScarySpiceDufflinMunder.Employees.Employee
 {
     class SalesEmployee : EmployeeBase
     {
-        private List<Client> Clients { get; set; } = new List<Client>();
-        private List<Sales> Sales { get; set; } = new List<Sales>();
+        public List<Client> Clients { get; set; } = new List<Client>();
+        public List<Sales> Sales { get; set; } = new List<Sales>();
 
-        // Constructor
         public SalesEmployee(string name)
         {
             Name = name;
         }
-        public void AddClient(Client client)
+        public void AddClient (Client client)
         {
             Clients.Add(client);
         }
@@ -23,13 +22,6 @@ namespace ScarySpiceDufflinMunder
         {
             Sales.Add(sale);
         }
-        public List<Client> getEmployeeClients()
-        {
-            return Clients;
-        }
-        public List<Sales> getEmployeeSales()
-        {
-            return Sales;
-        }
+
     }
 }

@@ -9,9 +9,6 @@ namespace ScarySpiceDufflinMunder
         public static List<SalesEmployee> SalesEmployees { get; set; } = new List<SalesEmployee>();
         static void Main(string[] args)
         {
-            var accountant1 = new Accounting("Kevin");
-            var accountant2 = new Accounting("Oscar");
-
             
             while(true)
             {
