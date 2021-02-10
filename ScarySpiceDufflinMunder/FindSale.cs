@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ScarySpiceDufflinMunder.Employees.Employee;
+using System.Linq;
 
 namespace ScarySpiceDufflinMunder
 {
-    class FindSale
+    class FindSale 
     {
        
-        public static void ShowSale(int userSelection)
+        public static void ShowSale(int userInput)
         {
-            if (true)
-            {
-
-            }
+           
         }
     }
 }

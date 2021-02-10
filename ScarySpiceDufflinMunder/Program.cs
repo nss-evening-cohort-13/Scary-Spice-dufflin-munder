@@ -1,5 +1,4 @@
-﻿using ScarySpiceDufflinMunder.Employees.Employee;
-using System;
+﻿using System;
 
 namespace ScarySpiceDufflinMunder
 {
@@ -7,9 +6,6 @@ namespace ScarySpiceDufflinMunder
     {
         static void Main(string[] args)
         {
-            var accountant1 = new Accounting("Kevin");
-            var accountant2 = new Accounting("Oscar");
-
             
             while(true)
             {

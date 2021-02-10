@@ -29,7 +29,7 @@ Sales Portal!
                     Console.WriteLine("Case 1");
                     break;
                 case 2:
-                    Console.WriteLine("Case 2");
+                    Report.Create();
                     break;
                 case 3:
                     Console.WriteLine("Case 3");
@@ -37,6 +37,12 @@ Sales Portal!
                 case 4:
                     Console.WriteLine("Case 4");
                     break;
+                /*case 5:
+                    Console.WriteLine("Case 5");
+                    break;
+                default:
+                    Console.WriteLine("Default case");
+                    break;*/
             }
         }
     }
