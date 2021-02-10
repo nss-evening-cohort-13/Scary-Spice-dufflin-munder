@@ -37,12 +37,6 @@ Sales Portal!
                 case 4:
                     Console.WriteLine("Case 4");
                     break;
-                case 5:
-                    Console.WriteLine("Case 5");
-                    break;
-                default:
-                    Console.WriteLine("Default case");
-                    break;
             }
         }
     }
