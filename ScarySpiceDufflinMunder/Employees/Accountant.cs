@@ -6,9 +6,9 @@ using ScarySpiceDufflinMunder.Employees;
 namespace ScarySpiceDufflinMunder.Employees.Employee
 {
     
-    public class Accounting : EmployeeBase
+    public class Accountant : EmployeeBase
     {
-        public Accounting(string name)
+        public Accountant(string name)
         {
             Name = name;
         }
