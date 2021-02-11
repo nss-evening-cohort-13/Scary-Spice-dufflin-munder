@@ -27,7 +27,17 @@ Sales Portal!
             switch (caseSwitch)
             {
                 case 1:
-                    Console.WriteLine("Case 1");
+                    Console.WriteLine("Which sales employee are you?");
+                    var newSale = new Sales();
+                    int count = 1;
+                    foreach (var employee in Program.SalesEmployees)
+                    {
+                        Console.WriteLine($"{count}. {employee.Name}");
+                        count++;
+                    }
+                    var chosenEmployee = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"Hello {Program.SalesEmployees[chosenEmployee - 1].Name}!");
+                    newSale.EnterSale(new SalesEmployee(Program.SalesEmployees[chosenEmployee - 1].Name));
                     break;
                 case 2:
                     Report.Create();
