@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using ScarySpiceDufflinMunder.Employees.Employee;
 
 namespace ScarySpiceDufflinMunder
 {
@@ -12,14 +13,6 @@ namespace ScarySpiceDufflinMunder
         public double Sale { get; set; }
         public string Recurring { get; set; }
         public int TimeFrame { get; set; }
-
-        public Sales(double sale, string recurring, int timeFrame)
-        {
-
-            Sale = sale;
-            Recurring = recurring;
-            TimeFrame = timeFrame;
-        }
 
         public void EnterSale(SalesEmployee salesEmployee)
         {
@@ -58,13 +51,19 @@ namespace ScarySpiceDufflinMunder
             var recurring = Console.ReadLine();
             if (recurring == "N".ToLower())
             {
-                salesEmployee.AddSale(new Sales(double.Parse(saleAmount), "One-Time", 1));
+                Sale = double.Parse(saleAmount);
+                Recurring = "One-Time";
+                TimeFrame = 1;
+                salesEmployee.AddSale(new Sales());
             }
             else
             {
                 Console.WriteLine("How many months will this payment be recurring?");
                 var monthlyPayment = Console.ReadLine();
-                salesEmployee.AddSale(new Sales(double.Parse(saleAmount), "Monthly", int.Parse(monthlyPayment)));
+                Sale = double.Parse(saleAmount);
+                Recurring = "Monthly";
+                TimeFrame = int.Parse(monthlyPayment);
+                salesEmployee.AddSale(new Sales());
             }
             Console.WriteLine($@"
 Sale completed! Details below:
@@ -72,9 +71,9 @@ Sale completed! Details below:
 Sales Agent: {salesEmployee.Name}
 Client: {ClientName}
 ClientID: {ClientId}
-Sale: {Sale}
+Sale: ${Sale}
 Recurring: {Recurring}
-Time Frame: {TimeFrame}
+Time Frame: {TimeFrame} month(s)
 ");
         }
     }
