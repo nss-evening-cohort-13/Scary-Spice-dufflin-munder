@@ -36,6 +36,7 @@ Sales Portal!
                         count++;
                     }
                     var chosenEmployee = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"Hello {Program.SalesEmployees[chosenEmployee - 1].Name}!");
                     newSale.EnterSale(new SalesEmployee(Program.SalesEmployees[chosenEmployee - 1].Name));
                     break;
                 case 2:
