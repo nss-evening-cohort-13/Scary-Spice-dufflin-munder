@@ -19,13 +19,21 @@ namespace ScarySpiceDufflinMunder
     foreach(var client in employee.Clients)
             {
                 // Loop over the employees Clients:
-                Console.WriteLine($@"{number}. {client.ClientName}");
+                Console.WriteLine($@"     {number}. {client.ClientName}");
                 number++;
             }
+            
             employee.Sales.ForEach(sales =>
             {
-                // Loop over the employees Sales:
-                total += sales.Sale;
+                if (sales.TimeFrame >= 1)
+                {
+                    total += sales.Sale * sales.TimeFrame;
+                } else
+                {
+                    total += sales.Sale;
+                }
+               
+                
                 
             });
             Console.WriteLine($@"Total: {total}");
