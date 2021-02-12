@@ -76,12 +76,11 @@ For: {accountant.Name}
                     //}
                     break;
                 case 4:
-                    Console.WriteLine("Enter employee name and hit enter");
-                    var nameInput = int.Parse(Console.ReadLine());
+                    
                     Console.WriteLine("Find a sale by typing in the client ID and hit enter");
                     var userInput = int.Parse(Console.ReadLine());
                     
-                    FindSale.ShowSale(userInput, nameInput);
+                    FindSale.ShowSale(userInput);
 
                     break;
             }
