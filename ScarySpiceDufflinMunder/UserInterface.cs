@@ -52,15 +52,14 @@ Sales Portal!
                     Console.WriteLine("Please choose an accountant: either Kevin or Oscar:");
                     var accountName = Console.ReadLine();
                     var accountant = new Accountant(accountName);
-                    Console.WriteLine("Monthly Sales Report");
-                    Console.WriteLine($@"For: {accountant.Name}");
-
+                    Console.WriteLine($@"
+Monthly Sales Report
+For: {accountant.Name}
+");
                     foreach (var employee in Program.SalesEmployees)
                     {
-                        
                         Console.WriteLine($"{counter}. {employee.Name}");
                         counter++;
-
                         Report.Create(employee);
                     }
                     
@@ -77,9 +76,12 @@ Sales Portal!
                     //}
                     break;
                 case 4:
-
+                    Console.WriteLine("Enter employee name and hit enter");
+                    var nameInput = int.Parse(Console.ReadLine());
                     Console.WriteLine("Find a sale by typing in the client ID and hit enter");
-                    FindSale.ShowSale(Program.SalesEmployees[0]);
+                    var userInput = int.Parse(Console.ReadLine());
+                    
+                    FindSale.ShowSale(userInput, nameInput);
 
                     break;
             }

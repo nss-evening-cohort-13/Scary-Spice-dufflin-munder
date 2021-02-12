@@ -9,9 +9,9 @@ namespace ScarySpiceDufflinMunder
     class FindSale : Sales
     {
          
-        public static void ShowSale(SalesEmployee salesEmployee)
+        public static void ShowSale(int userInput, SalesEmployee salesEmployee)
         {
-            var userInput = int.Parse(Console.ReadLine());
+            
             var matchedID = salesEmployee.Clients.Where(client => client.ClientID == userInput).ToList();
             if(!matchedID.Any())
             {
