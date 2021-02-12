@@ -17,16 +17,17 @@ namespace ScarySpiceDufflinMunder
         public void EnterSale(SalesEmployee salesEmployee)
         {
             var randomId = new Random();
-            Console.WriteLine("Please submit a Client ID. If this is a new Client, please enter the Client's name.");
+            Console.WriteLine("Please enter a Client ID or add a new client by typing out the client's name.");
             var clientInfo = Console.ReadLine();
             var validId = int.TryParse(clientInfo, out int clientId);
             if (validId)
             {
-                 var gottenClient = salesEmployee.Clients.Where(client => client.ClientID == clientId).ToList();
+                 var gottenClient = Program.AllClients.Where(client => client.ClientID == clientId).ToList();
                 if (!gottenClient.Any())
                 {
                     Console.WriteLine("Client ID not found. Please enter the Client's name.");
                     var clientName = Console.ReadLine();
+                    Program.AllClients.Add(new Client(clientName.ToString(), clientId));
                     salesEmployee.AddClient(new Client(clientName.ToString(), clientId));
                     ClientName = clientName;
                     ClientId = clientId;
@@ -40,10 +41,26 @@ namespace ScarySpiceDufflinMunder
             }
             else
             {
-                var randomClientId = randomId.Next(1, 50000);
-                salesEmployee.AddClient(new Client(clientInfo, randomClientId));
-                ClientName = clientInfo;
-                ClientId = randomClientId;
+                while(true)
+                {
+                    var randomClientId = randomId.Next(1, 50000);
+                    var preventDupes = Program.AllClients.Where(client => client.ClientID == randomClientId).ToList();
+                    if (!preventDupes.Any())
+                    {
+                        Program.AllClients.Add(new Client(clientInfo, randomClientId));
+                        salesEmployee.AddClient(new Client(clientInfo, randomClientId));
+                        ClientName = clientInfo;
+                        ClientId = randomClientId;
+                        break;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+
+                    
+                }
+                
             }
             Console.WriteLine("Please enter the sale amount.");
             var saleAmount = Console.ReadLine();
