@@ -7,6 +7,12 @@ namespace ScarySpiceDufflinMunder
     class Program
     {
         public static List<SalesEmployee> SalesEmployees { get; set; } = new List<SalesEmployee>();
+        public static List<Accountant> Accountants { get; set; } = new List<Accountant>
+        {
+            new Accountant("Kevin"),
+            new Accountant("Oscar")
+        };
+        public static List<Client> AllClients { get; set; } = new List<Client>();
         static void Main(string[] args)
         {
             
