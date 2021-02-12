@@ -52,14 +52,15 @@ Sales Portal!
                     Console.WriteLine("Please choose an accountant: either Kevin or Oscar:");
                     var accountName = Console.ReadLine();
                     var accountant = new Accountant(accountName);
-                    Console.WriteLine($@"
-Monthly Sales Report
-For: {accountant.Name}
-");
+                    Console.WriteLine("Monthly Sales Report");
+                    Console.WriteLine($@"For: {accountant.Name}");
+
                     foreach (var employee in Program.SalesEmployees)
                     {
+                        
                         Console.WriteLine($"{counter}. {employee.Name}");
                         counter++;
+
                         Report.Create(employee);
                     }
                     
