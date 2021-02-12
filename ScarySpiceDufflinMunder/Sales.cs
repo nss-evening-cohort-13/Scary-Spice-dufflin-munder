@@ -44,7 +44,6 @@ namespace ScarySpiceDufflinMunder
                 salesEmployee.AddClient(new Client(clientInfo, randomClientId));
                 ClientName = clientInfo;
                 ClientId = randomClientId;
-                salesEmployee.Clients.ForEach(client => Console.WriteLine($"Client name: {client.ClientName} Client ID: {client.ClientID}"));
             }
             Console.WriteLine("Please enter the sale amount.");
             var saleAmount = Console.ReadLine();
@@ -57,7 +56,6 @@ namespace ScarySpiceDufflinMunder
                 TimeFrame = 1;
                 salesEmployee.AddSale(new Sales()
                 { ClientName = ClientName, ClientId = ClientId, Sale = Sale, Recurring = Recurring, TimeFrame = TimeFrame });
-                salesEmployee.Sales.ForEach(sale => Console.WriteLine($"Sale amount: {sale.Sale} Recurring: {sale.Recurring}"));
             }
             else
             {
@@ -68,7 +66,6 @@ namespace ScarySpiceDufflinMunder
                 TimeFrame = int.Parse(monthlyPayment);
                 salesEmployee.AddSale(new Sales() 
                 { ClientName = ClientName, ClientId = ClientId, Sale = Sale, Recurring = Recurring, TimeFrame = TimeFrame });
-                salesEmployee.Sales.ForEach(sale => Console.WriteLine($"Sale amount: {sale.Sale} Recurring: {sale.Recurring}"));
             }
             Console.WriteLine($@"
 Sale completed! Details below:

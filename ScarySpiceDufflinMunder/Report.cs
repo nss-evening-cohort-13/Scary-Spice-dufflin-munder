@@ -25,7 +25,6 @@ namespace ScarySpiceDufflinMunder
             foreach (var sales in employee.Sales)
             {
                 // Loop over the employees Sales:
-                Console.WriteLine($@"Sale***{sales}");
                 total += sales.Sale;
                 
             }
