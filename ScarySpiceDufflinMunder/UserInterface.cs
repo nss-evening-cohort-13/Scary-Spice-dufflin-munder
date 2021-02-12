@@ -40,7 +40,21 @@ Sales Portal!
                     newSale.EnterSale(new SalesEmployee(Program.SalesEmployees[chosenEmployee - 1].Name));
                     break;
                 case 2:
-                    Report.Create();
+                    int counter = 0;
+                    Console.WriteLine("Please choose an accountant: either Kevin or Oscar:");
+                    var accountName = Console.ReadLine();
+                    var accountant = new Accountant(accountName);
+                    Console.WriteLine($@"
+Monthly Sales Report
+For: {accountant.Name}
+");
+                    foreach (var employee in Program.SalesEmployees)
+                    {
+                        Console.WriteLine($"{counter}. {employee.Name}");
+                        counter++;
+                        Report.Create(employee);
+                    }
+                    
                     break;
                 case 3:
                     Console.WriteLine("Please enter a name: ");
