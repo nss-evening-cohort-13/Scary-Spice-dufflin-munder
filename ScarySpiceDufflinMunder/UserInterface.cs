@@ -37,7 +37,7 @@ Sales Portal!
                     }
                     var chosenEmployee = int.Parse(Console.ReadLine());
                     Console.WriteLine($"Hello {Program.SalesEmployees[chosenEmployee - 1].Name}!");
-                    newSale.EnterSale(new SalesEmployee(Program.SalesEmployees[chosenEmployee - 1].Name));
+                    newSale.EnterSale(Program.SalesEmployees[chosenEmployee - 1]);
                     break;
                 case 2:
                     Report.Create();
@@ -54,7 +54,10 @@ Sales Portal!
                     //}
                     break;
                 case 4:
-                    Console.WriteLine("Case 4");
+
+                    Console.WriteLine("Find a sale by typing in the client ID and hit enter");
+                    FindSale.ShowSale(Program.SalesEmployees[0]);
+
                     break;
             }
         }
