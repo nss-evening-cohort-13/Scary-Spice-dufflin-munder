@@ -15,13 +15,27 @@ namespace ScarySpiceDufflinMunder
             var matchedID = salesEmployee.Clients.Where(client => client.ClientID == userInput).ToList();
             if(!matchedID.Any())
             {
-                var client = matchedID.Count;
                 Console.WriteLine($"The client ID you entered does not match any sale");
             }
             else
             {
-                var client = matchedID[0].ClientID;
-                Console.WriteLine($"{userInput} should match {client}");
+                var clientID = matchedID[0].ClientID;
+                Console.WriteLine();
+                if(userInput == clientID)
+                {
+                    Console.WriteLine($"Sales for the ClientID: {clientID}");
+                    foreach (var sale in salesEmployee.Sales)
+                    {
+                        Console.WriteLine($@"
+    Sales Agent: {salesEmployee.Name}
+    Client: {sale.ClientName}
+    ClientID: {sale.ClientId}
+    Sale: ${sale.Sale}
+    Recurring: {sale.Recurring}
+    Time Frame: {sale.TimeFrame} month(s)
+");
+                    }
+                }
             }
 
 

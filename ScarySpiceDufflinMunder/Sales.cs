@@ -49,12 +49,13 @@ namespace ScarySpiceDufflinMunder
             var saleAmount = Console.ReadLine();
             Console.WriteLine("Is this a recurring payment? Press Y or N");
             var recurring = Console.ReadLine();
-            if (recurring == "N".ToLower())
+            if (recurring.ToLower() == "n")
             {
                 Sale = double.Parse(saleAmount);
                 Recurring = "One-Time";
                 TimeFrame = 1;
-                salesEmployee.AddSale(new Sales());
+                salesEmployee.AddSale(new Sales()
+                { ClientName = ClientName, ClientId = ClientId, Sale = Sale, Recurring = Recurring, TimeFrame = TimeFrame });
             }
             else
             {
@@ -63,7 +64,8 @@ namespace ScarySpiceDufflinMunder
                 Sale = double.Parse(saleAmount);
                 Recurring = "Monthly";
                 TimeFrame = int.Parse(monthlyPayment);
-                salesEmployee.AddSale(new Sales());
+                salesEmployee.AddSale(new Sales() 
+                { ClientName = ClientName, ClientId = ClientId, Sale = Sale, Recurring = Recurring, TimeFrame = TimeFrame });
             }
             Console.WriteLine($@"
 Sale completed! Details below:
