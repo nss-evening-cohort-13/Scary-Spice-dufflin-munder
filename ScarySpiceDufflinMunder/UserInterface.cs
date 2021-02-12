@@ -56,10 +56,12 @@ Sales Portal!
 Monthly Sales Report
 For: {accountant.Name}
 ");
+
                     foreach (var employee in Program.SalesEmployees)
                     {
                         Console.WriteLine($"{counter}. {employee.Name}");
                         counter++;
+
                         Report.Create(employee);
                     }
                     

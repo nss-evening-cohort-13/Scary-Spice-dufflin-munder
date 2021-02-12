@@ -22,13 +22,14 @@ namespace ScarySpiceDufflinMunder
                 Console.WriteLine($@"{number}. {client.ClientName}");
                 number++;
             }
-            foreach (var sales in employee.Sales)
+            employee.Sales.ForEach(sales =>
             {
                 // Loop over the employees Sales:
                 total += sales.Sale;
                 
-            }
+            });
             Console.WriteLine($@"Total: {total}");
+
 
 
 
