@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ScarySpiceDufflinMunder
+﻿namespace ScarySpiceDufflinMunder
 {
     /********
-         ******** Client Class
-         ******** This class contains the clients name and client ID 
-         ********/
+     ******** Client Class
+     ******** Description: This class contains the clients name and client ID 
+     ******** Arguments: takes string clientName, and int clientID
+     ********/
     class Client
     {
         // properties
