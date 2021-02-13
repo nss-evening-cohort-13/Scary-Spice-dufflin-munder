@@ -52,7 +52,7 @@ Sales Portal!
                         while (true)
                         {
                             var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
-                            if (chosenEmployee)
+                            if (chosenEmployee && (employeeIndex - 1) < Program.SalesEmployees.Count && (employeeIndex -1) >= 0)
                             {
                                 Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
                                 // Call EnterSale method on newSale object using selected employee index
