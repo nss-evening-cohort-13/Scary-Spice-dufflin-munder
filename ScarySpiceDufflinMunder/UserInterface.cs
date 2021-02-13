@@ -5,49 +5,62 @@ namespace ScarySpiceDufflinMunder
 {
     class UserInterface
     {
-        
+        /********
+ ******** User Interface
+ ******** Description: This class houses the user interface to navigate throughout
+ ******** the various features of the console application.
+ ********/
         public static void MainGreeting()
         {
             Console.WriteLine(@"
-    Welcome to Dufflin/Munder Cardboard Co. 
-    Sales Portal!
+Welcome to Dufflin/Munder Cardboard Co. 
+Sales Portal!
 
-    1. Enter Sales
-    2. Generate Report For Accountant
-    3. Add New Sales Employee
-    4. Find a Sale
-    5. Exit
-    ");
+1. Enter Sales
+2. Generate Report For Accountant
+3. Add New Sales Employee
+4. Find a Sale
+5. Exit
+");
         }
+
         public static void UserSelection(int caseSwitch)
         {
-
+            Console.Clear();
             switch (caseSwitch)
             {
+                // Feature 1: Enter a sale
                 case 1:
                     Console.WriteLine("Which sales employee are you?");
                     var newSale = new Sales();
                     int count = 1;
+
+                    // Print out a list of existing employees.
                     foreach (var employee in Program.SalesEmployees)
                     {
                         Console.WriteLine($"{count}. {employee.Name}");
                         count++;
                     }
+
+                    // Select employee using index
                     var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
+                    // Call EnterSale method on newSale object
                     if (chosenEmployee)
                     {
                         Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
                         newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
                     }
+                    // Require user to select an existing employee
                     else
                     {
                         Console.WriteLine("Please enter a valid number of an employee.");
                     }
                     
                     break;
+                // Feature 2: Generate report for accountant
                 case 2:
                     int counter = 1;
-                    Console.WriteLine("Please choose an accountant: either Kevin or Oscar:");
+                    Console.WriteLine("Please enter your accountant's name. \"Oscar\" or \"Kevin\"");
                     var accountName = Console.ReadLine();
                     var accountant = new Accountant(accountName);
                     Console.WriteLine($@"
@@ -63,8 +76,9 @@ For: {accountant.Name}
                     
                     break;
                 case 3:
-                    Console.WriteLine("Please enter a name: ");
+                    Console.WriteLine("Please enter an employee name: ");
                     string newSalesEmployeeName = Console.ReadLine();
+                    // Create new employee using name input from user
                     var newEmployee = new SalesEmployee($"{newSalesEmployeeName}");
                     Program.AddSalesEmployee(newEmployee);
                     break;
