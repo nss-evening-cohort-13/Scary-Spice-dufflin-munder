@@ -69,18 +69,33 @@ For: {accountant.Name}
                     string newSalesEmployeeName = Console.ReadLine();
                     var newEmployee = new SalesEmployee($"{newSalesEmployeeName}");
                     Program.AddSalesEmployee(newEmployee);
-                    //print all of employees just to check
-                    //foreach(var employee in Program.SalesEmployees)
-                    //{
-                    //    Console.WriteLine($"{employee.Name}");
-                    //}
                     break;
                 case 4:
                     
                     Console.WriteLine("Find a sale by typing in the client ID and hit enter");
-                    var userInput = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"Choose from list of clients");
+                    foreach (var client in Program.AllClients)
+                    {
+                        Console.WriteLine($"{client.ClientName}: ClientID {client.ClientID}");
+                    }
                     
-                    FindSale.ShowSale(userInput);
+                    while (true)
+                    {
+                        var userInput = Console.ReadLine();
+                        var validClientID = int.TryParse(userInput, out int validID);
+                        if (validClientID)
+                        {
+                            FindSale.ShowSale(validID);
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid client ID");
+                            continue;
+                        }
+                        
+                    }
+                    
 
                     break;
             }
