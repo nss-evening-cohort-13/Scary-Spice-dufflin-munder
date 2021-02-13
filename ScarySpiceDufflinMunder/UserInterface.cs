@@ -71,14 +71,16 @@ For: {accountant.Name}
                     Program.AddSalesEmployee(newEmployee);
                     break;
                 case 4:
-                    
+                    Console.Clear();
                     Console.WriteLine("Find a sale by typing in the client ID and hit enter");
                     Console.WriteLine($"Choose from list of clients");
+                    // Display all the clientIDs and names
                     foreach (var client in Program.AllClients)
                     {
                         Console.WriteLine($"{client.ClientName}: ClientID {client.ClientID}");
                     }
                     
+                    // If ID is valid then show sale
                     while (true)
                     {
                         var userInput = Console.ReadLine();
