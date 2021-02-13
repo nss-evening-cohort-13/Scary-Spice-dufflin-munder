@@ -41,7 +41,7 @@ Sales Portal!
                         var newSale = new Sales();
                         int count = 1;
 
-                        // Print out a list of existing employees.
+                        // Print out a list olf existing employees.
                         foreach (var employee in Program.SalesEmployees)
                         {
                             Console.WriteLine($"{count}. {employee.Name}");
