@@ -31,36 +31,43 @@ Sales Portal!
             {
                 // Feature 1: Enter a sale
                 case 1:
-                    Console.WriteLine("Which sales employee are you?");
-                    var newSale = new Sales();
-                    int count = 1;
-
-                    // Print out a list of existing employees.
-                    foreach (var employee in Program.SalesEmployees)
+                    if (Program.SalesEmployees.Count == 0)
                     {
-                        Console.WriteLine($"{count}. {employee.Name}");
-                        count++;
+                        Console.WriteLine("There are no existing sales employees. Please create a new employee first.");
+                    } 
+                    else
+                    {
+                        Console.WriteLine("Which sales employee are you?");
+                        var newSale = new Sales();
+                        int count = 1;
+
+                        // Print out a list of existing employees.
+                        foreach (var employee in Program.SalesEmployees)
+                        {
+                            Console.WriteLine($"{count}. {employee.Name}");
+                            count++;
+                        }
+
+                        // Require user to enter index associated with employee
+                        while (true)
+                        {
+                            var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
+                            if (chosenEmployee)
+                            {
+                                Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
+                                // Call EnterSale method on newSale object using selected employee index
+                                newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
+                                break;
+                            }
+                            // Account for invalid input
+                            else
+                            {
+                                Console.WriteLine("Please enter a valid number of an employee.");
+                                continue;
+                            }
+                        }
+                        break;
                     }
-
-                    // Require user to enter index associated with employee
-                    while (true)
-                    {
-                        var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
-                        if (chosenEmployee)
-                        {
-                            Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
-                            // Call EnterSale method on newSale object using selected employee index
-                            newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
-                            break;
-                        }
-                        // Account for invalid input
-                        else
-                        {
-                            Console.WriteLine("Please enter a valid number of an employee.");
-                            continue;
-                        }
-                    }    
-                    
                     break;
 
                 // Feature 2: Generate report for accountant
