@@ -6,10 +6,10 @@ namespace ScarySpiceDufflinMunder
     class UserInterface
     {
         /********
- ******** User Interface
- ******** Description: This class houses the user interface to navigate throughout
- ******** the various features of the console application.
- ********/
+         ******** User Interface
+         ******** Description: This class houses the user interface to navigate throughout
+         ******** the various features of the console application.
+         ********/
         public static void MainGreeting()
         {
             Console.WriteLine(@"
