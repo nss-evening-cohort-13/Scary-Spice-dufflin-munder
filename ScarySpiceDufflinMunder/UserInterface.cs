@@ -35,16 +35,22 @@ Sales Portal!
                         Console.WriteLine($"{count}. {employee.Name}");
                         count++;
                     }
-                    var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
-                    if (chosenEmployee)
+                    while (true)
                     {
-                        Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
-                        newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
+                        var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
+                        if (chosenEmployee)
+                        {
+                            Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
+                            newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid number of an employee.");
+                            continue;
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("Please enter a valid number of an employee.");
-                    }
+                    
                     
                     break;
                 case 2:
