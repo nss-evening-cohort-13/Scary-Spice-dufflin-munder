@@ -41,20 +41,22 @@ Sales Portal!
                         Console.WriteLine($"{count}. {employee.Name}");
                         count++;
                     }
-
-                    // Select employee using index
-                    var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
-                    // Call EnterSale method on newSale object
-                    if (chosenEmployee)
+                    while (true)
                     {
-                        Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
-                        newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
+                        var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
+                        if (chosenEmployee)
+                        {
+                            Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
+                            newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid number of an employee.");
+                            continue;
+                        }
                     }
-                    // Require user to select an existing employee
-                    else
-                    {
-                        Console.WriteLine("Please enter a valid number of an employee.");
-                    }
+                    
                     
                     break;
                 // Feature 2: Generate report for accountant
@@ -83,14 +85,16 @@ For: {accountant.Name}
                     Program.AddSalesEmployee(newEmployee);
                     break;
                 case 4:
-                    
+                    Console.Clear();
                     Console.WriteLine("Find a sale by typing in the client ID and hit enter");
                     Console.WriteLine($"Choose from list of clients");
+                    // Display all the clientIDs and names
                     foreach (var client in Program.AllClients)
                     {
                         Console.WriteLine($"{client.ClientName}: ClientID {client.ClientID}");
                     }
                     
+                    // If ID is valid then show sale
                     while (true)
                     {
                         var userInput = Console.ReadLine();
