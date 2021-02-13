@@ -1,7 +1,5 @@
 ﻿using ScarySpiceDufflinMunder.Employees.Employee;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ScarySpiceDufflinMunder
 {
@@ -11,15 +9,15 @@ namespace ScarySpiceDufflinMunder
         public static void MainGreeting()
         {
             Console.WriteLine(@"
-Welcome to Dufflin/Munder Cardboard Co. 
-Sales Portal!
+    Welcome to Dufflin/Munder Cardboard Co. 
+    Sales Portal!
 
-1.Enter Sales
-2.Generate Report For Accountant
-3.Add New Sales Employee
-4.Find a Sale
-5.Exit
-                     ");
+    1. Enter Sales
+    2. Generate Report For Accountant
+    3. Add New Sales Employee
+    4. Find a Sale
+    5. Exit
+    ");
         }
         public static void UserSelection(int caseSwitch)
         {
