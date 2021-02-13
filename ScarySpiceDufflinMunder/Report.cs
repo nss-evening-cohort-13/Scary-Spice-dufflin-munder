@@ -1,28 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using ScarySpiceDufflinMunder.Employees.Employee;
+﻿using ScarySpiceDufflinMunder.Employees.Employee;
+using System;
 
 namespace ScarySpiceDufflinMunder
 {
     class Report
     {
-
+        /********
+         ******** Report Create
+         ******** Description: This class will generate a report that loops through each
+         ******** Client name and then displays a total of sales.
+         ******** Arguments: Takes one SalesEmployee Object
+         ********/
         public static void Create(SalesEmployee employee)
         {
-            
-            Console.WriteLine();
-            Console.WriteLine("Clients: ");
+            // variables to hold number of clients and totals
             int number = 1;
             double total = 0;
-            
-    foreach(var client in employee.Clients)
+            // Display Clients Header
+            Console.WriteLine("Clients: ");
+            // Loops over SalesEmployee Clients and displays the number followed by name:
+            foreach (var client in employee.Clients)
             {
-                // Loop over the employees Clients:
+                
                 Console.WriteLine($@"     {number}. {client.ClientName}");
                 number++;
             }
-            
+            // Loops over the SalesEmployees sales and adds to the total variable
             employee.Sales.ForEach(sales =>
             {
                 if (sales.TimeFrame >= 1)
@@ -32,15 +35,9 @@ namespace ScarySpiceDufflinMunder
                 {
                     total += sales.Sale;
                 }
-               
-                
-                
             });
+            // Displays the total in the total variable:
             Console.WriteLine($@"Total: {total}");
-
-
-
-
         }
     }
 }
