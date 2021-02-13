@@ -41,42 +41,50 @@ Sales Portal!
                         Console.WriteLine($"{count}. {employee.Name}");
                         count++;
                     }
+
+                    // Require user to enter index associated with employee
                     while (true)
                     {
                         var chosenEmployee = int.TryParse(Console.ReadLine(), out int employeeIndex);
                         if (chosenEmployee)
                         {
                             Console.WriteLine($"Hello {Program.SalesEmployees[employeeIndex - 1].Name}!");
+                            // Call EnterSale method on newSale object using selected employee index
                             newSale.EnterSale(Program.SalesEmployees[employeeIndex - 1]);
                             break;
                         }
+                        // Account for invalid input
                         else
                         {
                             Console.WriteLine("Please enter a valid number of an employee.");
                             continue;
                         }
-                    }
-                    
+                    }    
                     
                     break;
+
                 // Feature 2: Generate report for accountant
                 case 2:
                     int counter = 1;
-                    Console.WriteLine("Please enter your accountant's name. \"Oscar\" or \"Kevin\"");
+                    Console.WriteLine("Please enter your accountant's name. Either \"Oscar\" or \"Kevin\": ");
                     var accountName = Console.ReadLine();
                     var accountant = new Accountant(accountName);
                     Console.WriteLine($@"
 Monthly Sales Report
 For: {accountant.Name}
 ");
+                    // Loop through all employees
                     foreach (var employee in Program.SalesEmployees)
                     {
                         Console.WriteLine($"{counter}. {employee.Name}");
                         counter++;
+                        // Create report for current employee
                         Report.Create(employee);
                     }
                     
                     break;
+
+                // Feature 3: Create new employee
                 case 3:
                     Console.WriteLine("Please enter an employee name: ");
                     string newSalesEmployeeName = Console.ReadLine();
@@ -84,6 +92,8 @@ For: {accountant.Name}
                     var newEmployee = new SalesEmployee($"{newSalesEmployeeName}");
                     Program.AddSalesEmployee(newEmployee);
                     break;
+
+                // Feature 4: Find a sale
                 case 4:
                     Console.Clear();
                     Console.WriteLine("Find a sale by typing in the client ID and hit enter");
@@ -109,10 +119,7 @@ For: {accountant.Name}
                             Console.WriteLine("Please enter a valid client ID");
                             continue;
                         }
-                        
                     }
-                    
-
                     break;
             }
         }
