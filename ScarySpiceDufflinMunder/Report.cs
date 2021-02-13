@@ -19,12 +19,11 @@ namespace ScarySpiceDufflinMunder
             // Display Clients Header
             Console.WriteLine("Clients: ");
             // Loops over SalesEmployee Clients and displays the number followed by name:
-            foreach (var client in employee.Clients)
+            employee.Clients.ForEach(client =>
             {
-                
                 Console.WriteLine($@"     {number}. {client.ClientName}");
                 number++;
-            }
+            });
             // Loops over the SalesEmployees sales and adds to the total variable
             employee.Sales.ForEach(sales =>
             {
